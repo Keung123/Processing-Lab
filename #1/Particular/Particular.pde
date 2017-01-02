@@ -6,7 +6,7 @@ Star[] stars = new Star[amount];
 
 void setup()
 {
-  size(600, 600);
+  size(1270, 840);
   for(int i = 0; i < stars.length; i ++)
   {
     stars[i] = new Star();
@@ -22,5 +22,6 @@ void draw()
   {
     stars[i].update(speed);
     stars[i].show();
+    stars[i].tail();
   }
 }
