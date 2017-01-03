@@ -33,20 +33,18 @@ class Star
   
   void show()
   {
+    // the body
     fill(colour);
     noStroke();
     sx = map((x / z), 0, 1, 0, width);
     sy = map((y / z), 0, 1, 0, height);
     float size = map(z, 0, width, sizeMax, 0);
-    // ellipse(sx, sy, size, size);  
-  }
-  
-  void tail()
-  {
+    // ellipse(sx, sy, size, size);
+    
+    // the tail
     float px = map((x / preZ), 0, 1, 0, width);
     float py = map((y / preZ), 0, 1, 0, height);
     preZ = z;
-    
     stroke(colour);
     line(px, py, sx, sy);
   }
