@@ -1,8 +1,29 @@
 class StartUpPage
 { 
-  boolean mouseFlag;
+  int loopFlag = 0;
+  boolean launchFlag;
   
   int textColour = 255;
+  
+  void StartUpPage()
+  {
+    launchFlag = false;
+  }
+  
+  void init()
+  {
+    if(launchFlag = false)
+    {
+      show();
+      
+      while(loopFlag == 0)
+      {
+        show();
+      }
+      
+      launchFlag = true;
+    }
+  }
   
   void show()
   {
@@ -12,4 +33,4 @@ class StartUpPage
     textAlign(CENTER);
     text("Startup Page", width / 2, height / 2);
   }
-}
+}    
