@@ -4,10 +4,11 @@ import processing.sound.*;
 int amount = 600;
 
 float speed;
-int speedMax = 45;
+int speedMax = 25;
 int speedMin = 5;
-int speedBoost = 50;
+int speedBoost = 60;
 
+float mouseWheel;
 boolean mouseFlag;
 
 Star[] stars = new Star[amount];
@@ -42,14 +43,18 @@ void draw()
   mainPart();
 }
 
+void mouseWheel(MouseEvent roll)
+{
+  mouseWheel = roll.getCount();
+}
+
 void startUp()
 {
-  println("Startup");
+  
 }
 
 void mainPart()
 {
-  println("MainPart");
   // camera set to center
   cameraControl();
   // control the speed by mouse
@@ -60,21 +65,25 @@ void mainPart()
 
 void cameraControl()
 {
-  translate(width / 2, height / 2);
+  // translate(width / 2, height / 2);
+  translate(mouseX, mouseY);
 }
 
 void speedControl()
 {
-  if(mouseX < (width / 2))
-  {
-    speed = map(mouseX, 0, (width / 2), speedMin, speedMax);
-  }  
-  else
-  {
-    speed = map((mouseX - (width / 2)), 0, (width / 2), speedMax, speedMin);
-  }
+  speed = map(mouseWheel, -1.0, 1.0, speedMax, speedMin);
+  // Controled by mouseX
+  // if(mouseX < (width / 2))
+  // {
+  //   speed = map(mouseX, 0, (width / 2), speedMin, speedMax);
+  // }  
+  // else
+  // {
+  //   speed = map((mouseX - (width / 2)), 0, (width / 2), speedMax, speedMin);
+  // }
+  
   // speed boost
-  if(mouseButton == LEFT)
+  if(mouseButton == CENTER)
   {
     speed += speedBoost;
   }
