@@ -1,3 +1,6 @@
+import processing.sound.*;
+
+
 int amount = 600;
 
 float speed;
@@ -8,6 +11,8 @@ int speedBoost = 50;
 boolean mouseFlag;
 
 Star[] stars = new Star[amount];
+
+SoundFile bgMusic;
 
 void setup()
 {
@@ -23,7 +28,8 @@ void setup()
     stars[i] = new Star();
   }
   
-  
+  bgMusic = new SoundFile(this, "empty room-Drawing The Endless Shore.mp3");
+  bgMusic.loop();
 }
 
 void draw()
