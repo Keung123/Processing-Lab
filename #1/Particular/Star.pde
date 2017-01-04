@@ -6,9 +6,13 @@ class Star
   
   float sx;
   float sy;
-  float preZ;
+  float px;
+  float py;
+  float pz;
   
+  float size = 10; 
   int colour = 255;
+  int sizeMin = 0;
   int sizeMax = 16;
   
   Star()
@@ -16,7 +20,7 @@ class Star
     x = random(-width, width);
     y = random(-height, height);
     z = random(width);
-    preZ = z;
+    pz = z;
   }
   
   void update(float _speed)
@@ -27,24 +31,32 @@ class Star
       x = random(-width, width);
       y = random(-height, height);
       z = random(width);
-      preZ = z;
+      pz = z;
     }
   }
   
-  void show()
+  void process()
   {
     // the body
-    fill(colour);
-    noStroke();
     sx = map((x / z), 0, 1, 0, width);
     sy = map((y / z), 0, 1, 0, height);
-    float size = map(z, 0, width, sizeMax, 0);
-    // ellipse(sx, sy, size, size);
+    size = map(z, 0, width, sizeMax, sizeMin);
     
     // the tail
-    float px = map((x / preZ), 0, 1, 0, width);
-    float py = map((y / preZ), 0, 1, 0, height);
-    preZ = z;
+    px = map((x / pz), 0, 1, 0, width);
+    py = map((y / pz), 0, 1, 0, height);
+    pz = z;
+  }
+  
+  void showBody()
+  {
+    fill(colour);
+    noStroke();
+    ellipse(sx, sy, size, size);
+  }
+  
+  void showTail()
+  {
     stroke(colour);
     line(px, py, sx, sy);
   }
