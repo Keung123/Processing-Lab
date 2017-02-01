@@ -16,8 +16,8 @@ void mousePressed()
 
     for(Box boxesInArrayList : sponge)
     {
-        ArrayList<Box> newBoxes = boxesInArrayList.generate();
-        next.addAll(newBoxes);
+          ArrayList<Box> newBoxes = boxesInArrayList.generate();
+          next.addAll(newBoxes);
     }
 
     sponge = next;
@@ -25,22 +25,22 @@ void mousePressed()
 
 void draw()
 {
-    background(51);
-    // stroke(255);
-    // noFill();
-    noStroke();
-    lights();
+      background(51);
+      // stroke(255);
+      // noFill();
+      noStroke();
+      lights();
 
-    rAngle += 0.01;
+      rAngle += 0.01;
   
-    translate(width / 2, height / 2);
-    rotateX(rAngle);
-    rotateY(rAngle * 0.4);
-    rotateZ(rAngle * 0.2);
+      translate(width / 2, height / 2);
+      rotateX(rAngle);
+      rotateY(rAngle * 0.4);
+      rotateZ(rAngle * 0.2);
   
-    for(Box boxesInArrayList : sponge)
-    {
-        boxesInArrayList.show();
-    }
+      for(Box boxesInArrayList : sponge)
+      {
+            boxesInArrayList.show();
+      }
   
 }
