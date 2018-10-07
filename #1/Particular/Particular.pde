@@ -29,7 +29,7 @@ void setup()
     stars[i] = new Star();
   }
   
-  bgMusic = new SoundFile(this, "empty room-Drawing The Endless Shore.mp3");
+  bgMusic = new SoundFile(this, "empty room-Drawing The Endless Shore.wav");
   bgMusic.loop();
 }
 
