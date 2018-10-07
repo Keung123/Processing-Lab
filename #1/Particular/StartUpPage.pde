@@ -7,12 +7,12 @@ class StartUpPage
   
   void StartUpPage()
   {
-    launchFlag = false;
+    launchFlag = true;
   }
   
   void init()
   {
-    if(launchFlag = false)
+    if(launchFlag)
     {
       show();
       
