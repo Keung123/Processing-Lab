@@ -8,7 +8,7 @@ class Stars {
     int speedBoost = 60;
     
     float speed;
-    float mouseWheel;
+    int mouseWheel;
 
     Stars() {
 
@@ -19,7 +19,7 @@ class Stars {
         }
     }
 
-    void draw(float _mouseWheel) {
+    void draw(int _mouseWheel) {
 
         mouseWheel = _mouseWheel;
         // camera set to center
@@ -45,7 +45,7 @@ class Stars {
 
     void speedControl() {
     
-        speed = map(mouseWheel, -1.0, 1.0, speedMax, speedMin);
+        speed = map(mouseWheel, -3, 3, speedMax, speedMin);
         // Controled by mouseX
         // if(mouseX < (width / 2))
         // {
