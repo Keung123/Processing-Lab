@@ -33,13 +33,20 @@ void draw() {
     
     background(0);
     
-    if(mousePressed == true) {
-        scene += 1;
-    }
+    // if(mousePressed == true) {
+    //     scene += 1;
+    // }
 
-    if(scene == 0 ) {
+    if(scene < 200) {
         startUp();
+        if(mousePressed == true) {
+            scene += 1;
+        }
     }
+    // if(scene == 1) {
+    //     subTitle.setText("R i g h t         C  l  i  c  k         t  o         F r e e z e")
+    //     subTitle.draw()
+    // }
        
     stars.draw(mouseWheel);
 }
@@ -52,6 +59,22 @@ void startUp() {
     if(mouseWheel == 3) {
         subTitle.setText("C  l  i  c  k         t  o         B  e  g  i  n");
 
+    }
+
+    if(mouseButton == LEFT) {
+        bigTitle.setText("");
+        subTitle.setText("R i g h t         C  l  i  c  k         t  o         F r e e z e");
+    }
+
+    if(mouseButton == RIGHT) {
+        bigTitle.setText("");
+        subTitle.setText("M i d d l e         C  l  i  c  k         t  o         B o o s t");
+    }
+
+    if(mouseButton == CENTER) {
+        bigTitle.setText("");
+        subTitle.setText("H a v e         F u n");
+        scene += 1;
     }
     
     // if(mouseWheel != 0.0) {
